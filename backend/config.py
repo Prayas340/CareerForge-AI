@@ -14,10 +14,11 @@ DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "gemini-3.6-flash")
 FALLBACK_MODEL = os.getenv("FALLBACK_MODEL", "gemini-flash-latest")
 PRO_MODEL = os.getenv("PRO_MODEL", "gemini-pro-latest")
 
-# Server settings
-HOST = os.getenv("HOST", "127.0.0.1")
-PORT = int(os.getenv("PORT", "8000"))
-DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1", "yes")
+# Server settings (safely handle empty strings from Vercel envs)
+HOST = os.getenv("HOST") or "127.0.0.1"
+_port_raw = os.getenv("PORT")
+PORT = int(_port_raw) if _port_raw and _port_raw.strip().isdigit() else 8000
+DEBUG = (os.getenv("DEBUG") or "True").lower() in ("true", "1", "yes")
 
 # Upload and output paths (Safe for both Local and Vercel Serverless /tmp)
 IS_VERCEL = bool(os.getenv("VERCEL"))
