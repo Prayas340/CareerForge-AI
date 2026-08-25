@@ -19,8 +19,21 @@ HOST = os.getenv("HOST", "127.0.0.1")
 PORT = int(os.getenv("PORT", "8000"))
 DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1", "yes")
 
-# Upload and output paths
-UPLOAD_DIR = BASE_DIR / "uploads"
-OUTPUT_DIR = BASE_DIR / "generated_pdfs"
-UPLOAD_DIR.mkdir(exist_ok=True)
-OUTPUT_DIR.mkdir(exist_ok=True)
+# Upload and output paths (Safe for both Local and Vercel Serverless /tmp)
+IS_VERCEL = bool(os.getenv("VERCEL"))
+if IS_VERCEL:
+    UPLOAD_DIR = Path("/tmp/uploads")
+    OUTPUT_DIR = Path("/tmp/generated_pdfs")
+else:
+    UPLOAD_DIR = BASE_DIR / "uploads"
+    OUTPUT_DIR = BASE_DIR / "generated_pdfs"
+
+try:
+    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+except Exception:
+    pass
+
+try:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+except Exception:
+    pass
