@@ -12,13 +12,20 @@ warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 def call_gemini_api(prompt: str, system_instruction: str = "", model_name: str = DEFAULT_MODEL, json_mode: bool = True) -> Optional[str]:
-    """Fast, reliable Gemini API caller with automatic fallback and fast timeout."""
-    api_key = GEMINI_API_KEY
+    """Fast, reliable Gemini API caller with automatic multi-model failover."""
+    api_key = GEMINI_API_KEY or os.getenv("GEMINI_API_KEY", "")
     if not api_key:
         return None
 
-    # Priority models supported by Gemini API
-    models_to_try = ["gemini-3.6-flash", "gemini-flash-latest", "gemini-2.5-flash", "gemini-2.0-flash"]
+    # Priority models supported by Gemini API with active quotas
+    models_to_try = [
+        "gemini-3.5-flash-lite",
+        "gemini-flash-lite-latest",
+        "gemini-3.1-flash-lite",
+        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
+        "gemini-3.6-flash"
+    ]
     
     for m in models_to_try:
         try:
@@ -41,13 +48,13 @@ def call_gemini_api(prompt: str, system_instruction: str = "", model_name: str =
             if json_mode:
                 payload["generationConfig"]["responseMimeType"] = "application/json"
 
-            resp = requests.post(url, headers=headers, json=payload, timeout=3.5)
+            resp = requests.post(url, headers=headers, json=payload, timeout=12)
             if resp.status_code == 200:
                 data = resp.json()
                 text = data["candidates"][0]["content"]["parts"][0]["text"]
                 return text.strip()
-            elif resp.status_code == 429:
-                # Quota exceeded on this model, try next model or graceful fallback
+            elif resp.status_code in (429, 404, 503):
+                # Quota exceeded or high demand, try next model
                 continue
         except Exception:
             continue
