@@ -337,8 +337,11 @@ async def serve_reset_password():
 
 
 # Mount static files for the frontend
-if FRONTEND_DIR.exists():
-    app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+try:
+    if FRONTEND_DIR.exists():
+        app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+except Exception as e:
+    print(f"Static files mount note: {e}")
 
 
 if __name__ == "__main__":
