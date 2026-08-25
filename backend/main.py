@@ -336,12 +336,12 @@ async def serve_reset_password():
     raise HTTPException(status_code=404, detail="Reset password page not found")
 
 
-# Mount static files for the frontend
-try:
-    if FRONTEND_DIR.exists():
+# Mount static files for the frontend when running locally (Vercel serves public/ directly)
+if not os.getenv("VERCEL") and FRONTEND_DIR.exists():
+    try:
         app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
-except Exception as e:
-    print(f"Static files mount note: {e}")
+    except Exception as e:
+        print(f"Static files mount note: {e}")
 
 
 if __name__ == "__main__":
