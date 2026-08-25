@@ -66,7 +66,7 @@ function setupNavListeners() {
 function navigateTo(viewId) {
   appState.currentView = viewId;
 
-  // Update nav links styling
+  // Update desktop nav links styling
   document.querySelectorAll(".nav-link").forEach(link => {
     if (link.getAttribute("data-target") === viewId) {
       link.classList.add("text-primary", "font-bold", "active");
@@ -83,6 +83,17 @@ function navigateTo(viewId) {
       link.classList.add("text-on-surface-variant", "dark:text-[#94a3b8]");
       const ind = link.querySelector(".active-indicator");
       if (ind) ind.remove();
+    }
+  });
+
+  // Update mobile bottom nav buttons styling
+  document.querySelectorAll(".mobile-nav-btn").forEach(btn => {
+    if (btn.getAttribute("data-target") === viewId) {
+      btn.classList.add("text-primary", "font-bold", "bg-primary/10", "dark:bg-primary/20", "active");
+      btn.classList.remove("text-on-surface-variant", "dark:text-[#94a3b8]", "bg-transparent");
+    } else {
+      btn.classList.remove("text-primary", "font-bold", "bg-primary/10", "dark:bg-primary/20", "active");
+      btn.classList.add("text-on-surface-variant", "dark:text-[#94a3b8]", "bg-transparent");
     }
   });
 
