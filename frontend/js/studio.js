@@ -646,7 +646,7 @@ async function triggerAIDesignGeneration(hint = "") {
     return;
   }
 
-  showNotification("✨ Gemini AI is designing a bespoke, recruiter-grade CV layout...", "info");
+  showNotification("AI is designing a bespoke, recruiter-grade CV layout...", "info");
   
   try {
     const res = await api.generateAIDesign(appState.sessionId, hint);
@@ -682,7 +682,7 @@ async function triggerAIDesignGeneration(hint = "") {
 
       updateVersionLabel();
       renderStudioCV(appState.rewrittenCv || appState.structuredCv);
-      showNotification(`✨ New AI Blueprint: ${appState.styleArchetype} in ${appState.colorPalette.toUpperCase()}!`, "success");
+      showNotification(`New AI Blueprint: ${appState.styleArchetype} in ${appState.colorPalette.toUpperCase()}!`, "success");
     }
   } catch (err) {
     showNotification(`AI Design Generation failed: ${err.message}`, "error");
