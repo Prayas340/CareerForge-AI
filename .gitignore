@@ -1,0 +1,59 @@
+# ============================================================================
+# GITIGNORE - SENSITIVE CREDENTIALS & LOCAL ARTIFACTS PROTECTION
+# ============================================================================
+
+# Environment variables & API Keys (DO NOT COMMIT SECRETS)
+.env
+.env.local
+.env.*.local
+.env.supabase
+.env.production
+.env.development
+!.env.example
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# User uploads & generated PDFs
+uploads/
+generated_pdfs/
+sample_resumes/
+
+# System and IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.log
+.system_generated/
+.agents/
+.gemini/
