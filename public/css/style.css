@@ -1,0 +1,130 @@
+/* Custom styling & animations for CareerForge AI */
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes barShimmer {
+  0% { transform: translateX(-100%); opacity: 0; }
+  40% { opacity: 0.7; }
+  100% { transform: translateX(200%); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gaugePulse {
+  0%, 100% { filter: drop-shadow(0 0 0px rgba(0, 104, 95, 0)); }
+  50% { filter: drop-shadow(0 0 10px rgba(0, 104, 95, 0.35)); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.85); opacity: 0; }
+  70% { transform: scale(1.06); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.view-section {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Score Bars Animated Styling */
+.animated-score-bar {
+  transition: width 1.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative;
+  overflow: hidden;
+  will-change: width;
+}
+
+.animated-score-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: barShimmer 2.2s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.gauge-glow-effect {
+  animation: gaugePulse 3s ease-in-out infinite;
+}
+
+.score-number-pop {
+  display: inline-block;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Hide scrollbar for clean UI */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Editable Preview Nodes */
+[contenteditable="true"]:hover {
+  outline: 2px dashed rgba(0, 104, 95, 0.4);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+[contenteditable="true"]:focus {
+  outline: 2px solid rgba(0, 104, 95, 0.8);
+  outline-offset: 4px;
+  border-radius: 4px;
+  background-color: rgba(0, 104, 95, 0.05);
+}
+
+/* Custom Checkbox Animation */
+.task-checkbox:checked + div {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Toast Animations */
+.toast {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Print Styles for High-Fidelity PDF Printing */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #cv-paper, #cv-paper * {
+    visibility: visible;
+  }
+  #cv-paper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  nav, footer, .toast, #toast-container, .floating-actions, button {
+    display: none !important;
+  }
+}
