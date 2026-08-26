@@ -10,9 +10,9 @@ load_dotenv(BASE_DIR / ".env")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # Model configurations
-DEFAULT_MODEL = os.getenv("DEFAULT_MODEL") or "gemini-3.5-flash-lite"
-FALLBACK_MODEL = os.getenv("FALLBACK_MODEL") or "gemini-flash-lite-latest"
-PRO_MODEL = os.getenv("PRO_MODEL") or "gemini-3.1-pro-preview"
+DEFAULT_MODEL = os.getenv("DEFAULT_MODEL") or "gemini-3.6-flash"
+FALLBACK_MODEL = os.getenv("FALLBACK_MODEL") or "gemini-3.5-flash"
+PRO_MODEL = os.getenv("PRO_MODEL") or "gemini-3.5-flash-lite"
 
 # Server settings (safely handle empty strings from Vercel envs)
 HOST = os.getenv("HOST") or "127.0.0.1"

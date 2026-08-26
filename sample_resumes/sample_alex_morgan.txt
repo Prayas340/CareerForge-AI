@@ -1,0 +1,36 @@
+ALEX MORGAN
+San Francisco, CA | (555) 234-5678 | alex.morgan@design.io | linkedin.com/in/alexmorgan | portfolio: alexmorgandesign.com
+
+PROFESSIONAL SUMMARY
+Senior Product Designer with 6+ years of experience crafting intuitive digital experiences, design systems, and cross-platform mobile/web apps. Proven track record of leading design sprints, mentoring junior designers, and bridging the gap between product strategy and engineering execution.
+
+CORE SKILLS
+- Design: Product Design, UI/UX Design, Design Systems, Wireframing, Rapid Prototyping, User Research, Usability Testing, Information Architecture
+- Tools: Figma, FigJam, Sketch, Adobe Creative Suite, Framer, Principle, Miro, JIRA
+- Technical: HTML5, CSS3, Tailwind CSS, JavaScript basics, Responsive Web Design, Accessibility (WCAG 2.1)
+- Methodologies: Agile/Scrum, Design Thinking, User-Centered Design, A/B Testing, Data-Driven Iteration
+
+WORK EXPERIENCE
+
+Lead Product Designer | TechCorp Solutions, San Francisco, CA | 2021 - Present
+- Spearheaded company-wide design system overhaul across 4 core products, increasing engineering frontend velocity by 40% and cutting design handoff cycle time from 2 weeks to 3 days.
+- Redesigned the customer onboarding flow, driving a 28% increase in 30-day user activation and reducing drop-off rates by 18% across 450,000+ monthly active users.
+- Mentored and guided a high-performing team of 5 junior to mid-level product designers, establishing unified design critique rituals and performance benchmarks.
+- Collaborated directly with VP of Product and Lead Engineers to define the quarterly roadmap and prioritize high-impact feature releases.
+
+Senior UI/UX Designer | CloudScale Labs, Seattle, WA (Remote) | 2018 - 2021
+- Designed enterprise analytics dashboards used by Fortune 500 clients, resulting in a 35% improvement in user task completion times and positive customer satisfaction ratings (NPS +24).
+- Conducted 60+ qualitative user interviews and quantitative usability studies to uncover critical usability friction points, directly informing major UX refactoring.
+- Standardized responsive component libraries in Figma with autolayout and design tokens, reducing design discrepancies during QA cycles by 50%.
+
+Product Designer | Nexus Interactive, Austin, TX | 2017 - 2018
+- Designed web and mobile applications for SaaS and fintech startups from concept to launch.
+- Created clickable high-fidelity interactive prototypes for stakeholder pitches and user testing sessions.
+
+EDUCATION
+Bachelor of Science in Human-Computer Interaction (HCI)
+University of Washington, Seattle, WA | 2013 - 2017
+
+CERTIFICATIONS
+- Certified Usability Analyst (CUA) - Human Factors International (2020)
+- Enterprise Design Thinking Practitioner - IBM (2019)

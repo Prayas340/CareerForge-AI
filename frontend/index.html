@@ -385,7 +385,7 @@
               <span class="font-headline-md text-headline-md text-primary font-bold score-number-pop" id="score-ats">0%</span>
             </div>
             <h3 class="font-label-md text-label-md text-on-surface dark:text-[#f8fafc] font-semibold mb-unit">ATS Compatibility</h3>
-            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm" id="feedback-ats">Parsers will evaluate your structure.</p>
+            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm text-xs" id="feedback-ats">Parsers will evaluate your structure.</p>
             <div class="w-full h-2 bg-surface-container-high dark:bg-[#2a2a2a] rounded-full mt-auto overflow-hidden">
               <div class="h-full bg-primary rounded-full animated-score-bar" id="bar-ats" style="width: 0%"></div>
             </div>
@@ -400,7 +400,7 @@
               <span class="font-headline-md text-headline-md text-error font-bold score-number-pop" id="score-impact">0%</span>
             </div>
             <h3 class="font-label-md text-label-md text-on-surface dark:text-[#f8fafc] font-semibold mb-unit">Impact & Metrics</h3>
-            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm" id="feedback-impact">Quantifiable results analysis.</p>
+            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm text-xs" id="feedback-impact">Quantifiable results analysis.</p>
             <div class="w-full h-2 bg-surface-container-high dark:bg-[#2a2a2a] rounded-full mt-auto overflow-hidden">
               <div class="h-full bg-error rounded-full animated-score-bar" id="bar-impact" style="width: 0%"></div>
             </div>
@@ -415,7 +415,7 @@
               <span class="font-headline-md text-headline-md text-primary font-bold score-number-pop" id="score-readability">0%</span>
             </div>
             <h3 class="font-label-md text-label-md text-on-surface dark:text-[#f8fafc] font-semibold mb-unit">Readability</h3>
-            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm" id="feedback-readability">Clarity and phrasing analysis.</p>
+            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm text-xs" id="feedback-readability">Clarity and phrasing analysis.</p>
             <div class="w-full h-2 bg-surface-container-high dark:bg-[#2a2a2a] rounded-full mt-auto overflow-hidden">
               <div class="h-full bg-primary rounded-full animated-score-bar" id="bar-readability" style="width: 0%"></div>
             </div>
@@ -430,12 +430,58 @@
               <span class="font-headline-md text-headline-md text-secondary font-bold score-number-pop" id="score-industry">0%</span>
             </div>
             <h3 class="font-label-md text-label-md text-on-surface dark:text-[#f8fafc] font-semibold mb-unit">Industry Alignment</h3>
-            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm" id="feedback-industry">Benchmark alignment analysis.</p>
+            <p class="font-label-sm text-label-sm text-on-surface-variant dark:text-[#94a3b8] mb-stack-sm text-xs" id="feedback-industry">Benchmark alignment analysis.</p>
             <div class="w-full h-2 bg-surface-container-high dark:bg-[#2a2a2a] rounded-full mt-auto overflow-hidden">
               <div class="h-full bg-secondary rounded-full animated-score-bar" id="bar-industry" style="width: 0%"></div>
             </div>
           </div>
 
+        </section>
+
+        <!-- Strengths, Improvements & Keyword Suggestions Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+          
+          <!-- Key Strengths -->
+          <div class="bg-surface-container-lowest dark:bg-[#1e1e1e] rounded-2xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] p-stack-md border border-outline-variant/20 dark:border-[#334155]">
+            <div class="flex items-center gap-2 mb-3 text-primary">
+              <span class="material-symbols-outlined text-[22px]">check_circle</span>
+              <h3 class="font-headline-md text-base font-bold text-on-surface dark:text-[#f8fafc]">Verified Profile Strengths</h3>
+            </div>
+            <ul id="insights-strengths" class="flex flex-col gap-2 text-xs text-on-surface-variant dark:text-[#e2e8f0]">
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-0.5">•</span>
+                <span>Upload your CV to identify your highest-impact competitive advantages.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Critical Improvements -->
+          <div class="bg-surface-container-lowest dark:bg-[#1e1e1e] rounded-2xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] p-stack-md border border-outline-variant/20 dark:border-[#334155]">
+            <div class="flex items-center gap-2 mb-3 text-secondary">
+              <span class="material-symbols-outlined text-[22px]">trending_up</span>
+              <h3 class="font-headline-md text-base font-bold text-on-surface dark:text-[#f8fafc]">Actionable Optimizations</h3>
+            </div>
+            <ul id="insights-improvements" class="flex flex-col gap-2 text-xs text-on-surface-variant dark:text-[#e2e8f0]">
+              <li class="flex items-start gap-2">
+                <span class="text-secondary mt-0.5">•</span>
+                <span>Upload your CV to uncover actionable bullet point improvements and keyword additions.</span>
+              </li>
+            </ul>
+          </div>
+
+        </section>
+
+        <!-- Recommended Keywords Gap Bar -->
+        <section class="bg-surface-container-lowest dark:bg-[#1e1e1e] rounded-2xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] p-stack-md border border-outline-variant/20 dark:border-[#334155]">
+          <div class="flex items-center gap-2 mb-2 text-on-surface dark:text-[#f8fafc]">
+            <span class="material-symbols-outlined text-[20px] text-primary">key</span>
+            <h3 class="font-headline-md text-sm font-bold">Recommended High-Yield Keywords for Target Roles</h3>
+          </div>
+          <div id="insights-keywords" class="flex flex-wrap gap-1.5 mt-2">
+            <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-xs font-semibold">Cloud Architecture</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-xs font-semibold">System Design</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-xs font-semibold">Google XYZ Metrics</span>
+          </div>
         </section>
 
       </div>
@@ -462,84 +508,97 @@
             <!-- Controls -->
             <div class="flex flex-col gap-stack-md flex-1">
               
-              <!-- Style Archetype Selector -->
+              <!-- Style Archetype Selector (8 Layouts) -->
               <div>
                 <div class="flex items-center justify-between mb-stack-sm">
                   <label class="font-label-md text-label-md text-on-surface dark:text-[#f8fafc] uppercase tracking-wider font-semibold">Style Blueprint</label>
-                  <span class="text-[11px] text-primary font-medium">6 Layouts</span>
+                  <span class="text-[11px] text-primary font-medium">8 Layouts</span>
                 </div>
                 <div class="grid grid-cols-2 gap-stack-sm" id="archetype-selector">
-                  <button class="archetype-btn active flex flex-col items-center justify-center p-2.5 rounded-xl bg-primary/10 border-2 border-primary text-primary transition-all" data-archetype="Executive">
-                    <span class="material-symbols-outlined mb-0.5 text-[22px]">business_center</span>
+                  <button class="archetype-btn active flex flex-col items-center justify-center p-2 rounded-xl bg-primary/10 border-2 border-primary text-primary transition-all" data-archetype="Executive">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">business_center</span>
                     <span class="font-label-sm text-xs font-semibold">Executive</span>
                   </button>
-                  <button class="archetype-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Tech">
-                    <span class="material-symbols-outlined mb-0.5 text-[22px]">terminal</span>
+                  <button class="archetype-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Tech">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">terminal</span>
                     <span class="font-label-sm text-xs font-semibold">Silicon Tech</span>
                   </button>
-                  <button class="archetype-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Minimalist">
-                    <span class="material-symbols-outlined mb-0.5 text-[22px]">format_align_left</span>
+                  <button class="archetype-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Minimalist">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">format_align_left</span>
                     <span class="font-label-sm text-xs font-semibold">Two-Column</span>
                   </button>
-                  <button class="archetype-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Nordic">
-                    <span class="material-symbols-outlined mb-0.5 text-[22px]">splitscreen</span>
+                  <button class="archetype-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Nordic">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">splitscreen</span>
                     <span class="font-label-sm text-xs font-semibold">Nordic Split</span>
                   </button>
-                  <button class="archetype-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Compact">
-                    <span class="material-symbols-outlined mb-0.5 text-[22px]">density_small</span>
+                  <button class="archetype-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Compact">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">density_small</span>
                     <span class="font-label-sm text-xs font-semibold">Compact ATS</span>
                   </button>
-                  <button class="archetype-btn flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Gradient">
-                    <span class="material-symbols-outlined mb-0.5 text-[22px]">palette</span>
+                  <button class="archetype-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Gradient">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">palette</span>
                     <span class="font-label-sm text-xs font-semibold">Gradient Horizon</span>
+                  </button>
+                  <button class="archetype-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Modernist">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">view_quilt</span>
+                    <span class="font-label-sm text-xs font-semibold">Modernist Bold</span>
+                  </button>
+                  <button class="archetype-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] hover:text-primary transition-all" data-archetype="Infographic">
+                    <span class="material-symbols-outlined mb-0.5 text-[20px]">query_stats</span>
+                    <span class="font-label-sm text-xs font-semibold">Infographic Stats</span>
                   </button>
                 </div>
               </div>
 
-              <!-- Color Scheme Palette Selector -->
+              <!-- Color Scheme Palette Selector (12 Curated Palettes) -->
               <div>
                 <div class="flex items-center justify-between mb-stack-sm">
                   <label class="font-label-md text-label-md text-on-surface dark:text-[#f8fafc] uppercase tracking-wider font-semibold">Color Palette</label>
-                  <span class="text-[11px] text-on-surface-variant dark:text-[#94a3b8]">8 Palettes</span>
+                  <span class="text-[11px] text-on-surface-variant dark:text-[#94a3b8]">12 Palettes</span>
                 </div>
-                <div class="grid grid-cols-4 gap-2" id="palette-selector">
-                  <button class="palette-btn active h-9 rounded-xl bg-[#00685f] ring-2 ring-offset-2 ring-primary ring-offset-surface relative flex items-center justify-center shadow-sm" data-palette="teal" title="Teal / Slate">
-                    <span class="material-symbols-outlined text-white text-[16px]">check</span>
+                <div class="grid grid-cols-6 gap-1.5" id="palette-selector">
+                  <button class="palette-btn active h-8 rounded-lg bg-[#00685f] ring-2 ring-offset-2 ring-primary ring-offset-surface relative flex items-center justify-center shadow-sm" data-palette="teal" title="Teal / Slate">
+                    <span class="material-symbols-outlined text-white text-[14px]">check</span>
                   </button>
-                  <button class="palette-btn h-9 rounded-xl bg-[#1e3a8a] hover:ring-2 ring-offset-2 ring-[#1e3a8a] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="navy" title="Navy / Gold">
-                  </button>
-                  <button class="palette-btn h-9 rounded-xl bg-[#334155] hover:ring-2 ring-offset-2 ring-[#334155] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="slate" title="Classic Slate">
-                  </button>
-                  <button class="palette-btn h-9 rounded-xl bg-[#047857] hover:ring-2 ring-offset-2 ring-[#047857] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="emerald" title="Charcoal / Emerald">
-                  </button>
-                  <button class="palette-btn h-9 rounded-xl bg-[#4338ca] hover:ring-2 ring-offset-2 ring-[#4338ca] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="indigo" title="Royal Indigo">
-                  </button>
-                  <button class="palette-btn h-9 rounded-xl bg-[#9f1239] hover:ring-2 ring-offset-2 ring-[#9f1239] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="rosewood" title="Rosewood / Crimson">
-                  </button>
-                  <button class="palette-btn h-9 rounded-xl bg-[#0f172a] hover:ring-2 ring-offset-2 ring-[#0f172a] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="obsidian" title="Obsidian / Titanium">
-                  </button>
-                  <button class="palette-btn h-9 rounded-xl bg-[#c2410c] hover:ring-2 ring-offset-2 ring-[#c2410c] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="amber" title="Sunset Amber">
-                  </button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#1e3a8a] hover:ring-2 ring-offset-2 ring-[#1e3a8a] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="navy" title="Navy / Gold"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#334155] hover:ring-2 ring-offset-2 ring-[#334155] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="slate" title="Classic Slate"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#047857] hover:ring-2 ring-offset-2 ring-[#047857] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="emerald" title="Charcoal / Emerald"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#4338ca] hover:ring-2 ring-offset-2 ring-[#4338ca] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="indigo" title="Royal Indigo"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#9f1239] hover:ring-2 ring-offset-2 ring-[#9f1239] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="rosewood" title="Rosewood / Crimson"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#0f172a] hover:ring-2 ring-offset-2 ring-[#0f172a] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="obsidian" title="Obsidian / Titanium"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#c2410c] hover:ring-2 ring-offset-2 ring-[#c2410c] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="amber" title="Sunset Amber"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#7e22ce] hover:ring-2 ring-offset-2 ring-[#7e22ce] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="amethyst" title="Amethyst Violet"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#2563eb] hover:ring-2 ring-offset-2 ring-[#2563eb] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="cobalt" title="Cobalt Blue"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#dc2626] hover:ring-2 ring-offset-2 ring-[#dc2626] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="crimson" title="Crimson Ruby"></button>
+                  <button class="palette-btn h-8 rounded-lg bg-[#06b6d4] hover:ring-2 ring-offset-2 ring-[#06b6d4] ring-offset-surface transition-all relative flex items-center justify-center shadow-sm" data-palette="cyberpunk" title="Cyberpunk Neon"></button>
                 </div>
+              </div>
+
+              <!-- Custom AI Prompt Input & AI Dynamic Generator -->
+              <div class="border-t border-outline-variant/30 dark:border-[#334155] pt-3 flex flex-col gap-2">
+                <label class="block font-label-md text-xs text-on-surface dark:text-[#f8fafc] uppercase tracking-wider font-semibold">Prompt Gemini AI Design Director</label>
+                <div class="flex gap-1.5">
+                  <input id="ai-design-prompt-input" type="text" placeholder="e.g. Modernist dark theme with cobalt accents for AI Lead..." class="w-full text-xs bg-surface-container dark:bg-[#2a2a2a] text-on-surface dark:text-[#f8fafc] border border-outline-variant/40 dark:border-[#334155] rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                
+                <button class="w-full flex items-center justify-center p-2.5 rounded-xl bg-gradient-to-r from-primary to-surface-tint text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300 group overflow-hidden relative" onclick="triggerAIDesignGeneration(document.getElementById('ai-design-prompt-input')?.value || '')">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                  <span class="font-label-md text-xs font-bold flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                    Generate Bespoke AI Blueprint
+                  </span>
+                </button>
+                <button class="w-full flex items-center justify-center gap-1.5 p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] text-xs font-medium transition-all" onclick="surpriseMe()">
+                  <span class="material-symbols-outlined text-[16px]">shuffle</span> Surprise Me (Auto-Rotate Unique Blueprint)
+                </button>
               </div>
 
               <!-- Editable Resume Content Quick Form -->
               <div class="border-t border-outline-variant/30 dark:border-[#334155] pt-3">
-                <label class="block font-label-md text-label-md text-on-surface dark:text-[#f8fafc] uppercase tracking-wider mb-2 font-semibold">Quick Edit Summary</label>
-                <textarea id="edit-summary-input" rows="3" class="w-full text-sm bg-surface-container dark:bg-[#2a2a2a] text-on-surface dark:text-[#f8fafc] border border-outline-variant/40 dark:border-[#334155] rounded-xl p-2.5 outline-none focus:ring-2 focus:ring-primary"></textarea>
-                <button class="mt-2 text-xs font-semibold text-primary hover:underline flex items-center gap-1" onclick="applySummaryEdit()">
+                <label class="block font-label-md text-label-md text-on-surface dark:text-[#f8fafc] uppercase tracking-wider mb-1.5 font-semibold">Quick Edit Summary</label>
+                <textarea id="edit-summary-input" rows="2" class="w-full text-xs bg-surface-container dark:bg-[#2a2a2a] text-on-surface dark:text-[#f8fafc] border border-outline-variant/40 dark:border-[#334155] rounded-xl p-2 outline-none focus:ring-2 focus:ring-primary"></textarea>
+                <button class="mt-1 text-xs font-semibold text-primary hover:underline flex items-center gap-1" onclick="applySummaryEdit()">
                   <span class="material-symbols-outlined text-[14px]">sync</span> Apply to Preview
-                </button>
-              </div>
-
-              <!-- AI Dynamic Generator Button -->
-              <div class="mt-auto pt-2 flex flex-col gap-2">
-                <button class="w-full flex items-center justify-center p-3 rounded-xl bg-gradient-to-r from-primary to-surface-tint text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300 group overflow-hidden relative" onclick="triggerAIDesignGeneration()">
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                  <span class="font-label-md text-sm font-bold">generate new design</span>
-                </button>
-                <button class="w-full flex items-center justify-center gap-1.5 p-2 rounded-xl bg-surface-container dark:bg-[#2a2a2a] hover:bg-surface-container-high text-on-surface-variant dark:text-[#94a3b8] text-xs font-medium transition-all" onclick="surpriseMe()">
-                  <span class="material-symbols-outlined text-[16px]">shuffle</span> Surprise Me (Auto-Rotate Blueprint)
                 </button>
               </div>
 
@@ -556,8 +615,6 @@
             <!-- Ambient Glow -->
             <div class="absolute inset-0 opacity-40 pointer-events-none" style="background-image: radial-gradient(circle at 50% 50%, var(--tw-colors-primary-container) 0%, transparent 60%); filter: blur(60px);"></div>
             
-
-
             <!-- Floating Zoom Controls Top Right -->
             <div class="absolute right-gutter top-gutter flex flex-col gap-unit z-20">
               <div class="bg-surface-container-lowest/80 dark:bg-[#1e1e1e]/80 backdrop-blur-md rounded-full shadow-lg p-1 flex flex-col border border-outline-variant/20 dark:border-[#334155]">
@@ -628,31 +685,39 @@
             <span class="material-symbols-outlined text-[16px]">travel_explore</span> Finding match
           </div>
           <h1 class="font-display text-3xl md:text-4xl text-on-surface dark:text-[#f8fafc] font-bold mb-stack-sm">Jobs tailored for your new story.</h1>
-          <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-[#94a3b8] max-w-2xl">We've scanned listings to find the active roles where your unique skills shine brightest.</p>
+          <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-[#94a3b8] max-w-2xl">We've scanned listings to find the active roles where your unique skills shine brightest, paired with direct apply links to LinkedIn, Indeed, and Google Jobs.</p>
         </div>
 
-        <!-- Filter Bar -->
-        <div class="bg-surface-container-low dark:bg-[#1e1e1e] rounded-xl p-stack-sm flex flex-col md:flex-row gap-stack-md items-center shadow-sm mb-stack-lg border border-outline-variant/30 dark:border-[#334155] backdrop-blur-md sticky top-24 z-30">
-          <div class="flex items-center gap-stack-sm w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar" id="job-filters">
-            <button class="filter-chip active flex items-center gap-unit px-stack-md py-unit bg-primary-container text-on-primary-container rounded-full shadow-sm text-label-md font-label-md transition-colors whitespace-nowrap" data-filter="all" onclick="filterJobs('all')">
-              <span class="material-symbols-outlined text-[18px]">apps</span>
+        <!-- Filter & Search Bar -->
+        <div class="bg-surface-container-low dark:bg-[#1e1e1e] rounded-xl p-3 flex flex-col md:flex-row gap-3 items-center justify-between shadow-sm mb-stack-lg border border-outline-variant/30 dark:border-[#334155] backdrop-blur-md sticky top-24 z-30">
+          <div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0 hide-scrollbar" id="job-filters">
+            <button class="filter-chip active flex items-center gap-1.5 px-3.5 py-1.5 bg-primary-container text-on-primary-container rounded-full shadow-sm text-xs font-semibold transition-colors whitespace-nowrap" data-filter="all" onclick="filterJobs('all')">
+              <span class="material-symbols-outlined text-[16px]">apps</span>
               All Roles (<span id="job-count-badge">0</span>)
             </button>
-            <button class="filter-chip flex items-center gap-unit px-stack-md py-unit bg-surface dark:bg-[#2a2a2a] text-on-surface-variant dark:text-[#94a3b8] rounded-full shadow-sm text-label-md font-label-md hover:bg-surface-container transition-colors whitespace-nowrap border border-outline-variant/50 dark:border-[#334155]" data-filter="remote" onclick="filterJobs('remote')">
-              <span class="material-symbols-outlined text-[18px]">location_on</span>
+            <button class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 bg-surface dark:bg-[#2a2a2a] text-on-surface-variant dark:text-[#94a3b8] rounded-full shadow-sm text-xs font-semibold hover:bg-surface-container transition-colors whitespace-nowrap border border-outline-variant/50 dark:border-[#334155]" data-filter="remote" onclick="filterJobs('remote')">
+              <span class="material-symbols-outlined text-[16px]">location_on</span>
               Remote Only
             </button>
-            <button class="filter-chip flex items-center gap-unit px-stack-md py-unit bg-surface dark:bg-[#2a2a2a] text-on-surface-variant dark:text-[#94a3b8] rounded-full shadow-sm text-label-md font-label-md hover:bg-surface-container transition-colors whitespace-nowrap border border-outline-variant/50 dark:border-[#334155]" data-filter="high_match" onclick="filterJobs('high_match')">
-              <span class="material-symbols-outlined text-[18px]">tune</span>
-              Match > 80%
+            <button class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 bg-surface dark:bg-[#2a2a2a] text-on-surface-variant dark:text-[#94a3b8] rounded-full shadow-sm text-xs font-semibold hover:bg-surface-container transition-colors whitespace-nowrap border border-outline-variant/50 dark:border-[#334155]" data-filter="high_match" onclick="filterJobs('high_match')">
+              <span class="material-symbols-outlined text-[16px]">tune</span>
+              Match > 85%
+            </button>
+            <button class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 bg-surface dark:bg-[#2a2a2a] text-on-surface-variant dark:text-[#94a3b8] rounded-full shadow-sm text-xs font-semibold hover:bg-surface-container transition-colors whitespace-nowrap border border-outline-variant/50 dark:border-[#334155]" data-filter="tailored" onclick="filterJobs('tailored')">
+              <span class="material-symbols-outlined text-[16px]">stars</span>
+              Tailored Fits
             </button>
           </div>
-          
-          <div class="hidden md:block flex-grow"></div>
+
+          <!-- Keyword Search Input -->
+          <div class="relative w-full md:w-72">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-[#94a3b8] text-[18px]">search</span>
+            <input id="job-search-input" type="text" placeholder="Filter by skill, title, or company..." oninput="searchJobs(this.value)" class="w-full pl-9 pr-3 py-1.5 text-xs rounded-full bg-surface dark:bg-[#2a2a2a] text-on-surface dark:text-[#f8fafc] border border-outline-variant/40 dark:border-[#334155] outline-none focus:ring-2 focus:ring-primary placeholder:text-on-surface-variant/60">
+          </div>
           
           <div class="flex items-center gap-stack-sm w-full md:w-auto">
-            <span class="text-label-sm font-label-sm text-on-surface-variant dark:text-[#94a3b8] uppercase tracking-wider font-semibold">Sort by:</span>
-            <select id="job-sort-select" class="bg-surface dark:bg-[#2a2a2a] text-label-md font-label-md text-on-surface dark:text-[#f8fafc] border border-outline-variant/50 dark:border-[#334155] rounded-lg px-stack-md py-unit outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer" onchange="sortJobs(this.value)">
+            <span class="text-label-sm font-label-sm text-on-surface-variant dark:text-[#94a3b8] uppercase tracking-wider font-semibold">Sort:</span>
+            <select id="job-sort-select" class="bg-surface dark:bg-[#2a2a2a] text-xs font-semibold text-on-surface dark:text-[#f8fafc] border border-outline-variant/50 dark:border-[#334155] rounded-lg px-3 py-1.5 outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer" onchange="sortJobs(this.value)">
               <option value="match_desc">Highest Match</option>
               <option value="salary_desc">Salary (High to Low)</option>
               <option value="newest">Newest</option>

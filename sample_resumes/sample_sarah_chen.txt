@@ -1,0 +1,37 @@
+SARAH CHEN
+New York, NY | (555) 890-1234 | sarah.chen.dev@gmail.com | github.com/sarahchen | linkedin.com/in/sarahchen-swe
+
+PROFESSIONAL SUMMARY
+Senior Full-Stack AI Engineer with 7+ years of experience architecting resilient distributed systems, LLM-powered applications, and real-time data pipelines. Specialized in Python, TypeScript, FastAPI, React, PostgreSQL, LangChain, and cloud-native Kubernetes deployments on AWS.
+
+TECHNICAL SKILLS
+- Programming Languages: Python, TypeScript, JavaScript, Go, SQL, HTML/CSS
+- Frameworks & Libraries: FastAPI, Next.js, React, Node.js, LangChain, LlamaIndex, PyTorch, Tailwind CSS
+- Databases & Vector Stores: PostgreSQL, Redis, ChromaDB, Pinecone, MongoDB, SQLite
+- Cloud & DevOps: AWS (ECS, Lambda, S3, RDS), Docker, Kubernetes, CI/CD (GitHub Actions), Terraform
+- AI & LLM: Retrieval-Augmented Generation (RAG), Fine-tuning, Prompt Engineering, OpenAI API, Large Language Models (LLMs), Hugging Face
+
+EXPERIENCE
+
+Senior Full-Stack AI Engineer | Vertex AI Solutions, New York, NY | 2022 - Present
+- Architected and deployed an enterprise multi-agent RAG system processing 2M+ customer queries daily, reducing support resolution time by 52% and saving $1.4M annually in operational costs.
+- Built high-throughput asynchronous REST & WebSocket APIs using FastAPI and Python 3.12, maintaining sub-45ms p99 latency under 15,000 requests/sec peak traffic.
+- Designed hybrid semantic search pipeline combining dense vector embeddings (ChromaDB) with BM25 keyword search, improving retrieval precision by 34%.
+- Led a distributed team of 6 engineers, conducting architecture reviews, enforcing 90%+ test coverage with PyTest and Jest, and reducing release cycle time by 45%.
+
+Full-Stack Software Engineer | FinTech Pulse, Boston, MA | 2019 - 2022
+- Developed core microservices for real-time payment reconciliation handling $80M+ daily transactional volume using Go, TypeScript, and Kafka.
+- Implemented micro-frontend architecture with Next.js and Tailwind CSS, reducing initial page load bundle size by 38% and boosting Lighthouse performance score from 64 to 98.
+- Migrated legacy monolithic databases to sharded PostgreSQL and Redis caching layer, decreasing database query lock contention by 65%.
+
+Software Engineer | CodeCraft Digital, Boston, MA | 2017 - 2019
+- Built custom full-stack web applications and client dashboards using React, Python/Django, and AWS.
+- Automated CI/CD deployment pipelines using GitHub Actions and Docker, reducing production deployment errors by 70%.
+
+EDUCATION
+Master of Science in Computer Science | Columbia University, New York, NY (2017)
+Bachelor of Science in Computer Engineering | Boston University, Boston, MA (2015)
+
+CERTIFICATIONS
+- AWS Certified Solutions Architect - Professional (2023)
+- Certified Kubernetes Application Developer (CKAD) (2022)

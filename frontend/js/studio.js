@@ -1,5 +1,6 @@
 /**
  * CareerForge AI - Design Studio & Dynamic CV Renderer
+ * Supports 8 Distinct Archetypes & 12 Harmonized Color Palettes with AI Blueprint Generation
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,7 +20,7 @@ function setupStudioControls() {
       });
       btn.classList.add("active", "border-2", "border-primary", "bg-primary/10", "text-primary");
       btn.classList.remove("bg-surface-container", "text-on-surface-variant");
-      
+
       const archetype = btn.getAttribute("data-archetype");
       appState.styleArchetype = archetype;
       updateVersionLabel();
@@ -37,7 +38,7 @@ function setupStudioControls() {
       });
       btn.classList.add("ring-2", "ring-offset-2", "ring-primary");
       btn.innerHTML = `<span class="material-symbols-outlined text-white absolute inset-0 flex items-center justify-center text-[18px]">check</span>`;
-      
+
       const palette = btn.getAttribute("data-palette");
       appState.colorPalette = palette;
       renderStudioCV(appState.rewrittenCv || appState.structuredCv);
@@ -48,7 +49,7 @@ function setupStudioControls() {
 function updateVersionLabel() {
   const labelElem = document.getElementById("current-version-label");
   if (labelElem) {
-    labelElem.innerText = `Version 3.2 (${appState.styleArchetype})`;
+    labelElem.innerText = `Version 3.2 (${appState.styleArchetype || 'Executive'})`;
   }
 }
 
@@ -69,6 +70,14 @@ function getPaletteTheme(paletteKey) {
       return { primaryHex: "#0F172A", primaryBg: "rgba(15, 23, 42, 0.08)", textAccent: "text-slate-900 dark:text-sky-400", borderCol: "border-slate-800/30" };
     case "amber":
       return { primaryHex: "#C2410C", primaryBg: "rgba(194, 65, 12, 0.08)", textAccent: "text-amber-800 dark:text-amber-400", borderCol: "border-amber-800/30" };
+    case "amethyst":
+      return { primaryHex: "#7E22CE", primaryBg: "rgba(126, 34, 206, 0.08)", textAccent: "text-purple-800 dark:text-purple-400", borderCol: "border-purple-800/30" };
+    case "cobalt":
+      return { primaryHex: "#2563EB", primaryBg: "rgba(37, 99, 235, 0.08)", textAccent: "text-blue-700 dark:text-blue-400", borderCol: "border-blue-700/30" };
+    case "crimson":
+      return { primaryHex: "#DC2626", primaryBg: "rgba(220, 38, 38, 0.08)", textAccent: "text-red-700 dark:text-red-400", borderCol: "border-red-700/30" };
+    case "cyberpunk":
+      return { primaryHex: "#06B6D4", primaryBg: "rgba(6, 182, 212, 0.08)", textAccent: "text-cyan-600 dark:text-cyan-400", borderCol: "border-cyan-500/30" };
     case "teal":
     default:
       return { primaryHex: "#00685F", primaryBg: "rgba(0, 104, 95, 0.08)", textAccent: "text-primary", borderCol: "border-primary/20" };
@@ -145,6 +154,10 @@ function renderStudioCV(cvData) {
     preview.innerHTML = renderCompactAtsTemplate(pInfo, summary, skills, experiences, education, certs, paletteTheme);
   } else if (appState.styleArchetype === "Gradient") {
     preview.innerHTML = renderGradientHorizonTemplate(pInfo, summary, skills, experiences, education, certs, paletteTheme);
+  } else if (appState.styleArchetype === "Modernist") {
+    preview.innerHTML = renderModernistTemplate(pInfo, summary, skills, experiences, education, certs, paletteTheme);
+  } else if (appState.styleArchetype === "Infographic") {
+    preview.innerHTML = renderInfographicTemplate(pInfo, summary, skills, experiences, education, certs, paletteTheme);
   } else {
     // Executive Template (Default)
     preview.innerHTML = renderExecutiveTemplate(pInfo, summary, skills, experiences, education, certs, paletteTheme);
@@ -163,7 +176,6 @@ function renderExecutiveTemplate(pInfo, summary, skills, experiences, education,
   const contactHtml = renderContactChips(pInfo);
 
   return `
-    <!-- Header -->
     <header class="group relative border-b-2 ${theme.borderCol} pb-stack-md mb-stack-md hover:ring-2 hover:ring-primary/20 rounded-lg p-2 -m-2 transition-all">
       <div class="flex justify-between items-start">
         <div>
@@ -179,7 +191,6 @@ function renderExecutiveTemplate(pInfo, summary, skills, experiences, education,
       ` : ''}
     </header>
 
-    <!-- Professional Summary -->
     ${summary ? `
       <section class="group relative mb-stack-md hover:ring-2 hover:ring-primary/20 p-2 -m-2 rounded-lg transition-all">
         <h3 class="font-label-md text-xs uppercase tracking-widest font-bold mb-1.5" style="color: ${theme.primaryHex};">Executive Summary</h3>
@@ -190,7 +201,6 @@ function renderExecutiveTemplate(pInfo, summary, skills, experiences, education,
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-2">
       <!-- Main Content (Experience) -->
       <div class="col-span-2 flex flex-col gap-stack-md">
-        
         <section class="group relative hover:ring-2 hover:ring-primary/20 p-2 -m-2 rounded-lg transition-all">
           <div class="flex items-center justify-between mb-stack-sm">
             <h3 class="font-label-md text-xs uppercase tracking-widest font-bold" style="color: ${theme.primaryHex};">Professional Experience & Projects</h3>
@@ -211,13 +221,10 @@ function renderExecutiveTemplate(pInfo, summary, skills, experiences, education,
             </div>
           `).join('')}
         </section>
-
       </div>
 
       <!-- Right Column (Skills & Education) -->
       <div class="col-span-1 flex flex-col gap-stack-md">
-        
-        <!-- Skills Section -->
         <section class="group relative hover:ring-2 hover:ring-primary/20 p-2 -m-2 rounded-lg transition-all">
           <h3 class="font-label-md text-xs uppercase tracking-widest font-bold mb-2" style="color: ${theme.primaryHex};">Core Competencies</h3>
           <div class="flex flex-wrap gap-1.5">
@@ -225,7 +232,6 @@ function renderExecutiveTemplate(pInfo, summary, skills, experiences, education,
           </div>
         </section>
 
-        <!-- Education Section -->
         ${education.length > 0 ? `
           <section class="group relative hover:ring-2 hover:ring-primary/20 p-2 -m-2 rounded-lg transition-all">
             <h3 class="font-label-md text-xs uppercase tracking-widest font-bold mb-2" style="color: ${theme.primaryHex};">Education</h3>
@@ -239,7 +245,6 @@ function renderExecutiveTemplate(pInfo, summary, skills, experiences, education,
           </section>
         ` : ''}
 
-        <!-- Certifications -->
         ${certs.length > 0 ? `
           <section class="group relative hover:ring-2 hover:ring-primary/20 p-2 -m-2 rounded-lg transition-all">
             <h3 class="font-label-md text-xs uppercase tracking-widest font-bold mb-2" style="color: ${theme.primaryHex};">Certifications</h3>
@@ -251,7 +256,6 @@ function renderExecutiveTemplate(pInfo, summary, skills, experiences, education,
             `).join('')}
           </section>
         ` : ''}
-
       </div>
     </div>
   `;
@@ -267,8 +271,8 @@ function renderTechMinimalTemplate(pInfo, summary, skills, experiences, educatio
 
   return `
     <div class="font-mono text-xs text-primary mb-2 flex items-center justify-between">
-      <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">terminal</span> // SILICON_TECH_AI_SPEC</span>
-      <span class="px-2 py-0.5 bg-primary/10 rounded font-mono text-[10px] text-primary">RECRUITER_INDEX: 98/100</span>
+      <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">terminal</span> // TECH_AI_SYSTEM_SPEC</span>
+      <span class="px-2 py-0.5 bg-primary/10 rounded font-mono text-[10px] text-primary font-bold">RECRUITER_INDEX: 98/100</span>
     </div>
     
     <header class="border-b-2 ${theme.borderCol} pb-3 mb-4">
@@ -299,10 +303,10 @@ function renderTechMinimalTemplate(pInfo, summary, skills, experiences, educatio
       ${experiences.map(exp => `
         <div class="mb-4 pb-2 border-b border-outline-variant/10 dark:border-[#334155] last:border-0">
           <div class="flex justify-between items-baseline mb-1">
-            <span class="font-bold text-sm text-on-surface dark:text-[#f8fafc]">${exp.role || 'Role'} @ ${exp.company || 'Company'}</span>
-            <span class="font-mono text-xs text-on-surface-variant dark:text-[#94a3b8]">[${exp.start_date || ''} - ${exp.end_date || 'Present'}]</span>
+            <span class="font-mono text-xs font-bold text-on-surface dark:text-[#f8fafc]">[role] ${exp.role} @ ${exp.company}</span>
+            <span class="font-mono text-[11px] text-on-surface-variant dark:text-[#94a3b8]">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
           </div>
-          <ul class="list-disc list-inside space-y-1 text-xs text-on-surface-variant dark:text-[#e2e8f0]">
+          <ul class="list-disc list-outside ml-4 text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-1">
             ${(exp.bullets || []).map(b => `<li contenteditable="true">${b}</li>`).join('')}
           </ul>
         </div>
@@ -310,10 +314,10 @@ function renderTechMinimalTemplate(pInfo, summary, skills, experiences, educatio
     </div>
 
     ${education.length > 0 ? `
-      <div>
-        <h3 class="font-mono text-xs uppercase tracking-wider font-bold mb-2" style="color: ${theme.primaryHex};">> EDUCATION & ACADEMIC CREDENTIALS</h3>
+      <div class="mb-3">
+        <h3 class="font-mono text-xs uppercase tracking-wider font-bold mb-1" style="color: ${theme.primaryHex};">> CREDENTIALS & ACADEMIC GROUNDING</h3>
         ${education.map(edu => `
-          <p class="text-xs text-on-surface dark:text-[#f8fafc] font-semibold mb-1">${edu.degree} — ${edu.institution} ${edu.year ? `(${edu.year})` : ''}</p>
+          <p class="text-xs text-on-surface dark:text-[#f8fafc]">${edu.degree} — <span class="text-on-surface-variant dark:text-[#94a3b8]">${edu.institution} ${edu.year ? `(${edu.year})` : ''}</span></p>
         `).join('')}
       </div>
     ` : ''}
@@ -321,7 +325,7 @@ function renderTechMinimalTemplate(pInfo, summary, skills, experiences, educatio
 }
 
 // ==========================================
-// TEMPLATE 3: TWO-COLUMN SIDEBAR
+// TEMPLATE 3: MINIMALIST TWO-COLUMN
 // ==========================================
 function renderTwoColumnTemplate(pInfo, summary, skills, experiences, education, certs, theme) {
   const fullName = pInfo.full_name || pInfo.name || "Candidate Name";
@@ -329,58 +333,56 @@ function renderTwoColumnTemplate(pInfo, summary, skills, experiences, education,
   const contactHtml = renderContactChips(pInfo);
 
   return `
-    <div class="grid grid-cols-3 gap-6">
-      <!-- Left Column Sidebar -->
-      <div class="col-span-1 p-4 rounded-xl bg-surface-container-low dark:bg-[#201f1f] border border-outline-variant/30 dark:border-[#334155] flex flex-col gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="col-span-1 border-r border-outline-variant/20 dark:border-[#334155] pr-4 flex flex-col gap-4">
         <div>
-          <h1 class="font-display text-2xl font-bold text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
-          <p class="text-xs font-semibold mt-1" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
+          <h1 class="font-display text-2xl font-bold tracking-tight text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
+          <p class="text-xs font-semibold mt-0.5" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
         </div>
-
+        
         ${contactHtml ? `
-          <div class="text-xs space-y-1.5 text-on-surface-variant dark:text-[#94a3b8] flex flex-col">
+          <div class="flex flex-col gap-1 text-xs text-on-surface-variant dark:text-[#94a3b8]">
             ${contactHtml}
           </div>
         ` : ''}
 
-        <div class="pt-2 border-t border-outline-variant/30">
-          <h3 class="text-xs uppercase tracking-wider font-bold mb-2" style="color: ${theme.primaryHex};">Key Skills</h3>
+        <div>
+          <h3 class="text-[11px] uppercase tracking-widest font-bold mb-2 text-on-surface dark:text-[#f8fafc]">Expertise</h3>
           <div class="flex flex-wrap gap-1">
             ${renderSkillChips(skills, theme)}
           </div>
         </div>
 
         ${education.length > 0 ? `
-          <div class="pt-2 border-t border-outline-variant/30">
-            <h3 class="text-xs uppercase tracking-wider font-bold mb-1" style="color: ${theme.primaryHex};">Education</h3>
+          <div>
+            <h3 class="text-[11px] uppercase tracking-widest font-bold mb-2 text-on-surface dark:text-[#f8fafc]">Education</h3>
             ${education.map(edu => `
-              <div class="text-xs mb-1.5">
-                <p class="font-bold text-on-surface dark:text-[#f8fafc]">${edu.degree}</p>
-                <p class="text-[11px] text-on-surface-variant dark:text-[#94a3b8]">${edu.institution}</p>
+              <div class="mb-2 text-xs">
+                <p class="font-semibold text-on-surface dark:text-[#f8fafc]">${edu.degree}</p>
+                <p class="text-on-surface-variant dark:text-[#94a3b8] text-[11px]">${edu.institution}</p>
               </div>
             `).join('')}
           </div>
         ` : ''}
       </div>
 
-      <!-- Right Column Main Narrative -->
       <div class="col-span-2 flex flex-col gap-4">
         ${summary ? `
           <div>
-            <h3 class="text-xs uppercase tracking-wider font-bold mb-1" style="color: ${theme.primaryHex};">Executive Summary</h3>
-            <p class="text-xs leading-relaxed text-on-surface dark:text-[#e2e8f0]" contenteditable="true">${summary}</p>
+            <h3 class="text-[11px] uppercase tracking-widest font-bold mb-1" style="color: ${theme.primaryHex};">Profile Overview</h3>
+            <p class="text-xs leading-relaxed text-on-surface-variant dark:text-[#e2e8f0]" contenteditable="true">${summary}</p>
           </div>
         ` : ''}
 
         <div>
-          <h3 class="text-xs uppercase tracking-wider font-bold mb-2" style="color: ${theme.primaryHex};">Experience & Key Milestones</h3>
+          <h3 class="text-[11px] uppercase tracking-widest font-bold mb-3" style="color: ${theme.primaryHex};">Experience & Key Initiatives</h3>
           ${experiences.map(exp => `
-            <div class="mb-4 pb-2 border-b border-outline-variant/10 dark:border-[#334155] last:border-0">
+            <div class="mb-3.5 pb-2.5 border-b border-outline-variant/10 dark:border-[#334155] last:border-0">
               <div class="flex justify-between items-baseline mb-1">
-                <h4 class="font-bold text-xs text-on-surface dark:text-[#f8fafc]">${exp.role || 'Role'} @ ${exp.company || 'Company'}</h4>
+                <span class="font-bold text-xs text-on-surface dark:text-[#f8fafc]">${exp.role} · <span class="font-normal text-on-surface-variant dark:text-[#94a3b8]">${exp.company}</span></span>
                 <span class="text-[11px] text-on-surface-variant dark:text-[#94a3b8]">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
               </div>
-              <ul class="list-disc list-inside text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-1">
+              <ul class="list-disc list-outside ml-4 text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-1">
                 ${(exp.bullets || []).map(b => `<li contenteditable="true">${b}</li>`).join('')}
               </ul>
             </div>
@@ -392,7 +394,7 @@ function renderTwoColumnTemplate(pInfo, summary, skills, experiences, education,
 }
 
 // ==========================================
-// TEMPLATE 4: NORDIC SPLIT STUDIO
+// TEMPLATE 4: NORDIC SPLIT
 // ==========================================
 function renderNordicSplitTemplate(pInfo, summary, skills, experiences, education, certs, theme) {
   const fullName = pInfo.full_name || pInfo.name || "Candidate Name";
@@ -400,63 +402,62 @@ function renderNordicSplitTemplate(pInfo, summary, skills, experiences, educatio
   const contactHtml = renderContactChips(pInfo);
 
   return `
-    <div class="border-l-4 pl-4 mb-4" style="border-color: ${theme.primaryHex};">
-      <h1 class="font-display text-3xl font-extrabold tracking-tight text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
-      <p class="text-sm font-semibold tracking-wide" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
+    <div class="rounded-2xl p-5 mb-4 border ${theme.borderCol}" style="background-color: ${theme.primaryBg};">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="font-display text-3xl font-extrabold text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
+          <p class="text-sm font-semibold mt-1" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
+        </div>
+        <span class="text-xs px-3 py-1 rounded-full font-bold text-white shadow-sm" style="background-color: ${theme.primaryHex};">Nordic Blueprint</span>
+      </div>
       ${contactHtml ? `
-        <div class="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-on-surface-variant dark:text-[#94a3b8]">
+        <div class="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-xs text-on-surface-variant dark:text-[#94a3b8]">
           ${contactHtml}
         </div>
       ` : ''}
     </div>
 
     ${summary ? `
-      <div class="mb-4 pb-3 border-b ${theme.borderCol}">
-        <h3 class="text-xs uppercase font-bold tracking-widest mb-1" style="color: ${theme.primaryHex};">Core Profile</h3>
-        <p class="text-xs leading-relaxed text-on-surface dark:text-[#e2e8f0]" contenteditable="true">${summary}</p>
+      <div class="mb-4">
+        <p class="text-xs leading-relaxed text-on-surface-variant dark:text-[#e2e8f0] italic" contenteditable="true">"${summary}"</p>
       </div>
     ` : ''}
 
-    <div class="grid grid-cols-3 gap-6">
-      <div class="col-span-2 flex flex-col gap-4">
-        <h3 class="text-xs uppercase font-bold tracking-widest mb-1" style="color: ${theme.primaryHex};">Engineering & Product Milestones</h3>
-        ${experiences.map(exp => `
-          <div class="mb-3">
-            <div class="flex justify-between items-baseline">
-              <span class="font-bold text-xs text-on-surface dark:text-[#f8fafc]">${exp.role} · ${exp.company}</span>
-              <span class="text-[11px] text-on-surface-variant dark:text-[#94a3b8]">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
-            </div>
-            <ul class="list-disc list-inside mt-1 text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-1">
-              ${(exp.bullets || []).map(b => `<li contenteditable="true">${b}</li>`).join('')}
-            </ul>
-          </div>
-        `).join('')}
-      </div>
-
-      <div class="col-span-1 flex flex-col gap-4">
-        <div>
-          <h3 class="text-xs uppercase font-bold tracking-widest mb-2" style="color: ${theme.primaryHex};">Technical Stack</h3>
-          <div class="flex flex-wrap gap-1">
-            ${renderSkillChips(skills, theme)}
-          </div>
-        </div>
-
-        ${education.length > 0 ? `
-          <div class="pt-2 border-t ${theme.borderCol}">
-            <h3 class="text-xs uppercase font-bold tracking-widest mb-1" style="color: ${theme.primaryHex};">Education</h3>
-            ${education.map(edu => `
-              <p class="text-xs font-bold text-on-surface dark:text-[#f8fafc]">${edu.degree}</p>
-              <p class="text-[11px] text-on-surface-variant dark:text-[#94a3b8] mb-2">${edu.institution}</p>
-            `).join('')}
-          </div>
-        ` : ''}
+    <div class="mb-4">
+      <h3 class="text-xs uppercase font-extrabold tracking-widest mb-2" style="color: ${theme.primaryHex};">Core Domain Mastery</h3>
+      <div class="flex flex-wrap gap-1.5">
+        ${renderSkillChips(skills, theme)}
       </div>
     </div>
+
+    <div class="mb-4">
+      <h3 class="text-xs uppercase font-extrabold tracking-widest mb-2" style="color: ${theme.primaryHex};">Experience Timeline</h3>
+      ${experiences.map(exp => `
+        <div class="mb-3.5 pb-2.5 border-b border-outline-variant/10 dark:border-[#334155] last:border-0">
+          <div class="flex justify-between items-baseline mb-1">
+            <span class="font-bold text-xs text-on-surface dark:text-[#f8fafc]">${exp.role} @ ${exp.company}</span>
+            <span class="text-[11px] text-on-surface-variant dark:text-[#94a3b8]">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
+          </div>
+          <ul class="list-disc list-outside ml-4 text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-1">
+            ${(exp.bullets || []).map(b => `<li contenteditable="true">${b}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('')}
+    </div>
+
+    ${education.length > 0 ? `
+      <div>
+        <h3 class="text-xs uppercase font-extrabold tracking-widest mb-1" style="color: ${theme.primaryHex};">Academic Credentials</h3>
+        ${education.map(edu => `
+          <p class="text-xs text-on-surface dark:text-[#f8fafc]"><b>${edu.degree}</b> · ${edu.institution} ${edu.year ? `(${edu.year})` : ''}</p>
+        `).join('')}
+      </div>
+    ` : ''}
   `;
 }
 
 // ==========================================
-// TEMPLATE 5: COMPACT ATS PRO
+// TEMPLATE 5: COMPACT ATS 1-PAGE
 // ==========================================
 function renderCompactAtsTemplate(pInfo, summary, skills, experiences, education, certs, theme) {
   const fullName = pInfo.full_name || pInfo.name || "Candidate Name";
@@ -464,11 +465,11 @@ function renderCompactAtsTemplate(pInfo, summary, skills, experiences, education
   const contactHtml = renderContactChips(pInfo);
 
   return `
-    <div class="text-center pb-3 border-b-2 ${theme.borderCol} mb-3">
-      <h1 class="font-display text-2xl font-bold uppercase tracking-tight text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
-      <p class="text-xs font-bold uppercase tracking-wider mt-0.5" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
+    <div class="text-center border-b ${theme.borderCol} pb-2 mb-3">
+      <h1 class="font-display text-2xl font-bold text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
+      <p class="text-xs font-semibold" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
       ${contactHtml ? `
-        <div class="flex justify-center flex-wrap gap-x-3 gap-y-1 mt-1 text-xs text-on-surface-variant dark:text-[#94a3b8]">
+        <div class="flex justify-center flex-wrap gap-x-3 text-[11px] text-on-surface-variant dark:text-[#94a3b8] mt-1">
           ${contactHtml}
         </div>
       ` : ''}
@@ -476,27 +477,27 @@ function renderCompactAtsTemplate(pInfo, summary, skills, experiences, education
 
     ${summary ? `
       <div class="mb-3">
-        <h3 class="text-[11px] uppercase font-bold tracking-widest mb-0.5" style="color: ${theme.primaryHex};">Professional Summary</h3>
-        <p class="text-xs leading-tight text-on-surface-variant dark:text-[#e2e8f0]" contenteditable="true">${summary}</p>
+        <h3 class="text-[11px] uppercase font-bold tracking-widest mb-0.5" style="color: ${theme.primaryHex};">Executive Summary</h3>
+        <p class="text-xs leading-tight text-on-surface dark:text-[#f8fafc]" contenteditable="true">${summary}</p>
       </div>
     ` : ''}
 
     <div class="mb-3">
-      <h3 class="text-[11px] uppercase font-bold tracking-widest mb-1" style="color: ${theme.primaryHex};">Technical & Core Skills</h3>
+      <h3 class="text-[11px] uppercase font-bold tracking-widest mb-1" style="color: ${theme.primaryHex};">Core Technical Competencies</h3>
       <div class="flex flex-wrap gap-1">
         ${renderSkillChips(skills, theme)}
       </div>
     </div>
 
     <div class="mb-3">
-      <h3 class="text-[11px] uppercase font-bold tracking-widest mb-1" style="color: ${theme.primaryHex};">Work History & Technical Leadership</h3>
+      <h3 class="text-[11px] uppercase font-bold tracking-widest mb-1.5" style="color: ${theme.primaryHex};">Work History & Technical Milestones</h3>
       ${experiences.map(exp => `
-        <div class="mb-2.5">
-          <div class="flex justify-between items-baseline">
-            <span class="font-bold text-xs text-on-surface dark:text-[#f8fafc]">${exp.role} | ${exp.company}</span>
-            <span class="text-[11px] font-mono text-on-surface-variant dark:text-[#94a3b8]">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
+        <div class="mb-2">
+          <div class="flex justify-between items-baseline text-xs font-bold text-on-surface dark:text-[#f8fafc]">
+            <span>${exp.role} — ${exp.company}</span>
+            <span class="text-[10px] font-normal text-on-surface-variant dark:text-[#94a3b8]">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
           </div>
-          <ul class="list-disc list-inside mt-0.5 text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-0.5">
+          <ul class="list-disc list-outside ml-4 text-[11px] leading-snug text-on-surface-variant dark:text-[#e2e8f0] space-y-0.5">
             ${(exp.bullets || []).map(b => `<li contenteditable="true">${b}</li>`).join('')}
           </ul>
         </div>
@@ -523,7 +524,7 @@ function renderGradientHorizonTemplate(pInfo, summary, skills, experiences, educ
   const contactHtml = renderContactChips(pInfo);
 
   return `
-    <div class="p-4 rounded-2xl mb-4 text-white shadow-md relative overflow-hidden" style="background: linear-gradient(135deg, ${theme.primaryHex} 0%, #111C2D 100%);">
+    <div class="p-5 rounded-2xl mb-4 text-white shadow-md relative overflow-hidden" style="background: linear-gradient(135deg, ${theme.primaryHex} 0%, #111C2D 100%);">
       <div class="relative z-10">
         <h1 class="font-display text-3xl font-bold tracking-tight" contenteditable="true">${fullName}</h1>
         <p class="text-sm font-medium opacity-90 mt-0.5" contenteditable="true">${title}</p>
@@ -550,6 +551,157 @@ function renderGradientHorizonTemplate(pInfo, summary, skills, experiences, educ
 
     <div class="mb-4">
       <h3 class="text-xs font-bold uppercase tracking-wider mb-2" style="color: ${theme.primaryHex};">Key Experience & Scaled Architecture</h3>
+      ${experiences.map(exp => `
+        <div class="mb-3.5 pb-2.5 border-b border-outline-variant/10 dark:border-[#334155] last:border-0">
+          <div class="flex justify-between items-baseline mb-1">
+            <span class="font-bold text-xs text-on-surface dark:text-[#f8fafc]">${exp.role} @ ${exp.company}</span>
+            <span class="text-[11px] text-on-surface-variant dark:text-[#94a3b8]">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
+          </div>
+          <ul class="list-disc list-outside ml-4 text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-1">
+            ${(exp.bullets || []).map(b => `<li contenteditable="true">${b}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('')}
+    </div>
+
+    ${education.length > 0 ? `
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider mb-1" style="color: ${theme.primaryHex};">Education</h3>
+        ${education.map(edu => `
+          <p class="text-xs font-bold text-on-surface dark:text-[#f8fafc]">${edu.degree} — <span class="font-normal text-on-surface-variant dark:text-[#94a3b8]">${edu.institution}</span></p>
+        `).join('')}
+      </div>
+    ` : ''}
+  `;
+}
+
+// ==========================================
+// TEMPLATE 7: MODERNIST BOLD (NEW ARCHETYPE)
+// ==========================================
+function renderModernistTemplate(pInfo, summary, skills, experiences, education, certs, theme) {
+  const fullName = pInfo.full_name || pInfo.name || "Candidate Name";
+  const title = pInfo.title || pInfo.domain || "Professional Title";
+  const contactHtml = renderContactChips(pInfo);
+
+  return `
+    <div class="border-l-4 pl-4 mb-5" style="border-color: ${theme.primaryHex};">
+      <h1 class="font-display text-4xl font-extrabold tracking-tight text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
+      <div class="flex items-center gap-3 mt-1">
+        <p class="text-base font-bold" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
+        <span class="px-2.5 py-0.5 text-[10px] font-extrabold uppercase rounded-md text-white" style="background-color: ${theme.primaryHex};">Verified Elite</span>
+      </div>
+      ${contactHtml ? `
+        <div class="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-on-surface-variant dark:text-[#94a3b8]">
+          ${contactHtml}
+        </div>
+      ` : ''}
+    </div>
+
+    ${summary ? `
+      <div class="mb-5 p-3.5 rounded-xl border border-outline-variant/30 dark:border-[#334155] bg-surface-container-lowest dark:bg-[#1e1e1e] shadow-sm">
+        <h3 class="text-[11px] font-black uppercase tracking-wider mb-1" style="color: ${theme.primaryHex};">// EXECUTIVE IMPACT SUMMARY</h3>
+        <p class="text-xs leading-relaxed text-on-surface dark:text-[#f8fafc]" contenteditable="true">${summary}</p>
+      </div>
+    ` : ''}
+
+    <div class="mb-5">
+      <h3 class="text-xs font-black uppercase tracking-wider mb-2.5 flex items-center gap-2" style="color: ${theme.primaryHex};">
+        <span class="w-2.5 h-2.5 rounded-sm" style="background-color: ${theme.primaryHex};"></span>
+        TECHNICAL CAPABILITIES & TOOLING
+      </h3>
+      <div class="flex flex-wrap gap-1.5">
+        ${renderSkillChips(skills, theme)}
+      </div>
+    </div>
+
+    <div class="mb-5">
+      <h3 class="text-xs font-black uppercase tracking-wider mb-3 flex items-center gap-2" style="color: ${theme.primaryHex};">
+        <span class="w-2.5 h-2.5 rounded-sm" style="background-color: ${theme.primaryHex};"></span>
+        CORE ARCHITECTURAL ENGAGEMENTS
+      </h3>
+      ${experiences.map(exp => `
+        <div class="mb-4 pl-3.5 border-l-2 border-outline-variant/30 dark:border-[#334155]">
+          <div class="flex justify-between items-baseline mb-1">
+            <span class="font-extrabold text-xs text-on-surface dark:text-[#f8fafc]">${exp.role} <span class="font-semibold text-on-surface-variant dark:text-[#94a3b8]">· ${exp.company}</span></span>
+            <span class="text-[11px] font-bold" style="color: ${theme.primaryHex};">${exp.start_date || ''} - ${exp.end_date || 'Present'}</span>
+          </div>
+          <ul class="list-disc list-outside ml-4 text-xs text-on-surface-variant dark:text-[#e2e8f0] space-y-1">
+            ${(exp.bullets || []).map(b => `<li contenteditable="true">${b}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('')}
+    </div>
+
+    ${education.length > 0 ? `
+      <div>
+        <h3 class="text-xs font-black uppercase tracking-wider mb-2" style="color: ${theme.primaryHex};">ACADEMIC FOUNDATION</h3>
+        ${education.map(edu => `
+          <p class="text-xs font-bold text-on-surface dark:text-[#f8fafc]">${edu.degree} — <span class="font-normal text-on-surface-variant dark:text-[#94a3b8]">${edu.institution} ${edu.year ? `(${edu.year})` : ''}</span></p>
+        `).join('')}
+      </div>
+    ` : ''}
+  `;
+}
+
+// ==========================================
+// TEMPLATE 8: INFOGRAPHIC STAT CALLOUT (NEW ARCHETYPE)
+// ==========================================
+function renderInfographicTemplate(pInfo, summary, skills, experiences, education, certs, theme) {
+  const fullName = pInfo.full_name || pInfo.name || "Candidate Name";
+  const title = pInfo.title || pInfo.domain || "Professional Title";
+  const contactHtml = renderContactChips(pInfo);
+
+  return `
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-center pb-4 mb-4 border-b-2 ${theme.borderCol}">
+      <div>
+        <h1 class="font-display text-3xl font-extrabold text-on-surface dark:text-[#f8fafc]" contenteditable="true">${fullName}</h1>
+        <p class="text-sm font-bold mt-0.5" style="color: ${theme.primaryHex};" contenteditable="true">${title}</p>
+        ${contactHtml ? `
+          <div class="flex flex-wrap gap-x-3 gap-y-1 mt-1 text-xs text-on-surface-variant dark:text-[#94a3b8]">
+            ${contactHtml}
+          </div>
+        ` : ''}
+      </div>
+      <div class="mt-2 md:mt-0 flex items-center gap-2">
+        <div class="px-3 py-2 rounded-xl text-center text-white font-bold" style="background-color: ${theme.primaryHex};">
+          <span class="block text-xs uppercase opacity-80">ATS Grade</span>
+          <span class="text-base font-extrabold">96%</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stat Callout Cards -->
+    <div class="grid grid-cols-3 gap-3 mb-4">
+      <div class="p-2.5 rounded-xl text-center border ${theme.borderCol}" style="background-color: ${theme.primaryBg};">
+        <span class="block text-[10px] uppercase font-bold text-on-surface-variant dark:text-[#94a3b8]">Specialization</span>
+        <span class="text-xs font-extrabold text-on-surface dark:text-[#f8fafc]">${title.split(' ')[0] || 'Engineering'}</span>
+      </div>
+      <div class="p-2.5 rounded-xl text-center border ${theme.borderCol}" style="background-color: ${theme.primaryBg};">
+        <span class="block text-[10px] uppercase font-bold text-on-surface-variant dark:text-[#94a3b8]">Delivery Mode</span>
+        <span class="text-xs font-extrabold" style="color: ${theme.primaryHex};">Google XYZ</span>
+      </div>
+      <div class="p-2.5 rounded-xl text-center border ${theme.borderCol}" style="background-color: ${theme.primaryBg};">
+        <span class="block text-[10px] uppercase font-bold text-on-surface-variant dark:text-[#94a3b8]">Uptime / Impact</span>
+        <span class="text-xs font-extrabold text-on-surface dark:text-[#f8fafc]">Top 5%</span>
+      </div>
+    </div>
+
+    ${summary ? `
+      <div class="mb-4">
+        <h3 class="text-xs font-bold uppercase tracking-wider mb-1" style="color: ${theme.primaryHex};">Executive Trajectory</h3>
+        <p class="text-xs leading-relaxed text-on-surface-variant dark:text-[#e2e8f0]" contenteditable="true">${summary}</p>
+      </div>
+    ` : ''}
+
+    <div class="mb-4">
+      <h3 class="text-xs font-bold uppercase tracking-wider mb-2" style="color: ${theme.primaryHex};">Technical Proficiency Meters</h3>
+      <div class="flex flex-wrap gap-1.5">
+        ${renderSkillChips(skills, theme)}
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-xs font-bold uppercase tracking-wider mb-2" style="color: ${theme.primaryHex};">Production Architecture Milestones</h3>
       ${experiences.map(exp => `
         <div class="mb-3.5 pb-2.5 border-b border-outline-variant/10 dark:border-[#334155] last:border-0">
           <div class="flex justify-between items-baseline mb-1">
@@ -647,7 +799,7 @@ async function triggerAIDesignGeneration(hint = "") {
   }
 
   showNotification("AI is designing a bespoke, recruiter-grade CV layout...", "info");
-  
+
   try {
     const res = await api.generateAIDesign(appState.sessionId, hint);
     if (res.success && res.design) {
@@ -682,7 +834,7 @@ async function triggerAIDesignGeneration(hint = "") {
 
       updateVersionLabel();
       renderStudioCV(appState.rewrittenCv || appState.structuredCv);
-      showNotification(`New AI Blueprint: ${appState.styleArchetype} in ${appState.colorPalette.toUpperCase()}!`, "success");
+      showNotification(`✨ New AI Blueprint: ${appState.styleArchetype} in ${appState.colorPalette.toUpperCase()}!`, "success");
     }
   } catch (err) {
     showNotification(`AI Design Generation failed: ${err.message}`, "error");
@@ -704,7 +856,7 @@ function saveVersion() {
 async function downloadPDF() {
   const paper = document.getElementById("cv-preview") || document.getElementById("cv-paper");
   const cvData = appState.rewrittenCv || appState.structuredCv;
-  
+
   if (!paper || !cvData || (!cvData.personal_info?.full_name && !cvData.personal_info?.name)) {
     showNotification("Please upload a resume first before downloading PDF.", "error");
     return;

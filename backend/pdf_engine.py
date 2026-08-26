@@ -100,6 +100,46 @@ PALETTES = {
         "border": colors.HexColor("#FFEDD5"),
         "bg_light": colors.HexColor("#FFFDFB"),
         "name": "Sunset Amber"
+    },
+    "amethyst": {
+        "primary": colors.HexColor("#7E22CE"),
+        "primary_light": colors.HexColor("#FAF5FF"),
+        "secondary": colors.HexColor("#3B0764"),
+        "accent": colors.HexColor("#C084FC"),
+        "muted": colors.HexColor("#7E22CE"),
+        "border": colors.HexColor("#E9D5FF"),
+        "bg_light": colors.HexColor("#FAF5FF"),
+        "name": "Amethyst Violet"
+    },
+    "cobalt": {
+        "primary": colors.HexColor("#2563EB"),
+        "primary_light": colors.HexColor("#EFF6FF"),
+        "secondary": colors.HexColor("#172554"),
+        "accent": colors.HexColor("#60A5FA"),
+        "muted": colors.HexColor("#1D4ED8"),
+        "border": colors.HexColor("#BFDBFE"),
+        "bg_light": colors.HexColor("#F8FAFC"),
+        "name": "Cobalt Blue"
+    },
+    "crimson": {
+        "primary": colors.HexColor("#DC2626"),
+        "primary_light": colors.HexColor("#FEF2F2"),
+        "secondary": colors.HexColor("#450A0A"),
+        "accent": colors.HexColor("#F87171"),
+        "muted": colors.HexColor("#B91C1C"),
+        "border": colors.HexColor("#FECACA"),
+        "bg_light": colors.HexColor("#FFFDFD"),
+        "name": "Crimson Ruby"
+    },
+    "cyberpunk": {
+        "primary": colors.HexColor("#06B6D4"),
+        "primary_light": colors.HexColor("#ECFEFF"),
+        "secondary": colors.HexColor("#0F172A"),
+        "accent": colors.HexColor("#F43F5E"),
+        "muted": colors.HexColor("#0891B2"),
+        "border": colors.HexColor("#A5F3FC"),
+        "bg_light": colors.HexColor("#F8FAFC"),
+        "name": "Cyberpunk Neon"
     }
 }
 

@@ -97,6 +97,40 @@ function renderInsights(insights, structuredCv) {
   // Industry Alignment
   const industry = dims.industry_alignment || { score: 75, feedback: "Missing key modern frameworks for Senior roles." };
   animateMetricCard("industry", industry.score, industry.feedback, 440);
+
+  // 4. Strengths & Improvements
+  const strengthsContainer = document.getElementById("insights-strengths");
+  const improvementsContainer = document.getElementById("insights-improvements");
+  const keywordsContainer = document.getElementById("insights-keywords");
+
+  const strengths = insights.key_strengths || insights.top_strengths || [];
+  if (strengthsContainer && strengths.length > 0) {
+    strengthsContainer.innerHTML = strengths.map(s => `
+      <li class="flex items-start gap-2">
+        <span class="text-primary font-bold mt-0.5">✓</span>
+        <span>${s}</span>
+      </li>
+    `).join('');
+  }
+
+  const improvements = insights.critical_improvements || insights.key_weaknesses || [];
+  if (improvementsContainer && improvements.length > 0) {
+    improvementsContainer.innerHTML = improvements.map(imp => `
+      <li class="flex items-start gap-2">
+        <span class="text-secondary font-bold mt-0.5">⚡</span>
+        <span>${imp}</span>
+      </li>
+    `).join('');
+  }
+
+  const keywords = insights.keyword_suggestions || [];
+  if (keywordsContainer && keywords.length > 0) {
+    keywordsContainer.innerHTML = keywords.map(k => `
+      <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-xs font-semibold border border-primary/20 flex items-center gap-1">
+        <span class="material-symbols-outlined text-[13px]">add</span> ${k}
+      </span>
+    `).join('');
+  }
 }
 
 function animateMetricCard(name, score, feedback, staggerDelayMs = 0) {
