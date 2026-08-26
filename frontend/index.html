@@ -114,14 +114,14 @@
   <!-- NAVIGATION HEADER -->
   <!-- ========================================== -->
   <header class="fixed top-2 md:top-4 left-0 right-0 z-50 px-2 md:px-margin-desktop">
-    <div class="max-w-container-max mx-auto h-16 md:h-20 bg-surface-container-lowest/85 dark:bg-[#1e1e1e]/90 backdrop-blur-xl rounded-2xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] border border-outline-variant/30 dark:border-[#334155] flex items-center justify-between px-3 md:px-gutter transition-all duration-300">
+    <div class="max-w-container-max mx-auto h-14 sm:h-16 md:h-20 bg-surface-container-lowest/85 dark:bg-[#1e1e1e]/90 backdrop-blur-xl rounded-2xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] border border-outline-variant/30 dark:border-[#334155] flex items-center justify-between px-2.5 sm:px-4 md:px-gutter transition-all duration-300">
       
       <!-- Brand Logo -->
-      <div class="flex items-center gap-2 cursor-pointer shrink-0" onclick="navigateTo('upload')">
-        <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-[20px] md:text-[26px]">stethoscope_arrow</span>
+      <div class="flex items-center gap-1.5 sm:gap-2 cursor-pointer shrink-0" onclick="navigateTo('upload')">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-[18px] sm:text-[20px] md:text-[26px]">stethoscope_arrow</span>
         </div>
-        <span class="font-headline-md text-base md:text-xl text-on-surface dark:text-[#f8fafc] tracking-tight font-bold whitespace-nowrap">CareerForge <span class="text-primary font-normal">AI</span></span>
+        <span class="font-headline-md text-xs sm:text-base md:text-xl text-on-surface dark:text-[#f8fafc] tracking-tight font-bold whitespace-nowrap">CareerForge <span class="text-primary font-normal">AI</span></span>
       </div>
 
       <!-- Navigation Tabs (Desktop) -->
@@ -142,35 +142,36 @@
       </nav>
 
       <!-- Right Utility Actions & Auth Area -->
-      <div class="flex items-center gap-1.5 md:gap-stack-md shrink-0">
+      <div class="flex items-center gap-1 sm:gap-1.5 md:gap-stack-md shrink-0">
         <!-- Dark Mode Toggle -->
-        <button id="theme-toggle" class="p-1.5 md:p-2 text-on-surface-variant dark:text-[#f8fafc] hover:bg-surface-container-high dark:hover:bg-[#2a2a2a] rounded-full transition-colors" title="Toggle Theme">
+        <button id="theme-toggle" class="p-1 sm:p-1.5 md:p-2 text-on-surface-variant dark:text-[#f8fafc] hover:bg-surface-container-high dark:hover:bg-[#2a2a2a] rounded-full transition-colors" title="Toggle Theme">
           <span class="material-symbols-outlined text-[18px] md:text-[20px] dark:hidden">dark_mode</span>
           <span class="material-symbols-outlined text-[18px] md:text-[20px] hidden dark:block">light_mode</span>
         </button>
 
-        <!-- Notification Bell -->
-        <button class="p-1.5 md:p-2 text-on-surface-variant dark:text-[#94a3b8] hover:bg-surface-container-high dark:hover:bg-[#2a2a2a] rounded-full transition-colors relative" title="Notifications" onclick="showNotification('AI Engine ready: Multi-Agent Neural Engine activated.')">
+        <!-- Notification Bell (Hidden on small mobile screens to prevent overflow) -->
+        <button class="hidden sm:flex p-1.5 md:p-2 text-on-surface-variant dark:text-[#94a3b8] hover:bg-surface-container-high dark:hover:bg-[#2a2a2a] rounded-full transition-colors relative" title="Notifications" onclick="showNotification('AI Engine ready: Multi-Agent Neural Engine activated.')">
           <span class="material-symbols-outlined text-[18px] md:text-[20px]">notifications</span>
           <span class="absolute top-1 right-1 md:top-1.5 md:right-1.5 w-2 h-2 bg-primary rounded-full ring-2 ring-surface-container-lowest"></span>
         </button>
 
-        <div class="h-5 md:h-6 w-px bg-outline-variant/30 dark:bg-[#334155]"></div>
+        <div class="hidden sm:block h-5 md:h-6 w-px bg-outline-variant/30 dark:bg-[#334155]"></div>
 
         <!-- Auth Area: Logged Out State -->
-        <div id="auth-logged-out" class="flex items-center gap-1 md:gap-2">
-          <button class="px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-xl text-xs md:text-sm font-semibold text-on-surface dark:text-[#f8fafc] hover:bg-surface-container dark:hover:bg-[#2a2a2a] transition-all whitespace-nowrap" onclick="openAuthModal('login')">
+        <div id="auth-logged-out" class="flex items-center gap-1 sm:gap-2">
+          <button class="px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-on-surface dark:text-[#f8fafc] hover:bg-surface-container dark:hover:bg-[#2a2a2a] transition-all whitespace-nowrap" onclick="openAuthModal('login')">
             Sign In
           </button>
-          <button class="px-3 md:px-4 py-1 md:py-1.5 rounded-xl text-xs md:text-sm font-semibold bg-primary text-on-primary hover:bg-surface-tint transition-all shadow-md hover:shadow-lg shadow-primary/20 hover:-translate-y-0.5 whitespace-nowrap" onclick="openAuthModal('register')">
-            Create Account
+          <button class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold bg-primary text-on-primary hover:bg-surface-tint transition-all shadow-md hover:shadow-lg shadow-primary/20 hover:-translate-y-0.5 whitespace-nowrap" onclick="openAuthModal('register')">
+            <span class="inline sm:hidden">Sign Up</span>
+            <span class="hidden sm:inline">Create Account</span>
           </button>
         </div>
 
         <!-- Auth Area: Logged In State (Profile Chip & Dropdown) -->
         <div id="auth-logged-in" class="hidden relative">
-          <button id="user-profile-btn" class="flex items-center gap-1.5 md:gap-2 p-1 md:p-1.5 px-2 rounded-xl hover:bg-surface-container dark:hover:bg-[#2a2a2a] border border-outline-variant/30 dark:border-[#334155] transition-all" onclick="toggleUserDropdown()">
-            <div class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shadow-inner" id="nav-user-avatar">
+          <button id="user-profile-btn" class="flex items-center gap-1 sm:gap-2 p-1 md:p-1.5 px-1.5 sm:px-2 rounded-xl hover:bg-surface-container dark:hover:bg-[#2a2a2a] border border-outline-variant/30 dark:border-[#334155] transition-all" onclick="toggleUserDropdown()">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shadow-inner" id="nav-user-avatar">
               U
             </div>
             <div class="hidden sm:flex flex-col text-left leading-tight pr-1">
